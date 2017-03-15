@@ -7,6 +7,17 @@ function isOverlapRect(rect, obstacle) {
         isOverlapTop: (rect.y <= obstacle.y + obstacle.h && rect.y >= obstacle.y)
     }; 
     ret.isOverlaped = (ret.isOverlapLeft || ret.isOverlapRight || ret.isOverlapTop || ret.isOverlapBottom);
+
+    
+    var x = Math.max(rect.x, obstacle.x);
+    var num1 = Math.min(rect.r, obstacle.r);
+    var y = Math.max(rect.y, obstacle.y);
+    var num2 = Math.min(rect.b, obstacle.b);
+
+    ret.overlapedArea = null;
+    if (num1 >= x && num2 >= y)
+        ret.overlapedArea = {x:x, y:y, w:num1 - x, h:num2 - y};
+
     return ret;
     //( 
     //    (rect.x <= obstacle.x + obstacle.w && rect.x + rect.w >= obstacle.x) &&

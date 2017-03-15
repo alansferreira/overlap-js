@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <style>
+            .tester {border:1px solid black;width:50px;height:50px}
+        </style>
+    </head>
+    <body>
+        Overlap (px^2): <span id="overlap">0</span >
+        over 2 <span id="overlap">0</span >
+
+        <div class="tester"></div>
+        <div class="tester"></div>        
+    </body>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <script src="overlap.js"></script>
+    
+    <script>
+        var divs = $('.tester').resizable().draggable({
+            drag: function(){
+                    var rect1 = {
+                                x: divs.eq(0).position().left, 
+                    y: divs.eq(0).position().top,
+                    w: divs.eq(0).width(), 
+                    h: divs.eq(0).height(), 
+                    
+                    b: divs.eq(0).position().top + divs.eq(0).height(), 
+                    r: divs.eq(0).position().left + divs.eq(0).width()
+                };
+                    var rect2 = {
+                                x: divs.eq(1).position().left, 
+                    y: divs.eq(1).position().top,
+                    w: divs.eq(1).width(), 
+                    h: divs.eq(1).height(), 
+                    
+                    b: divs.eq(1).position().top + divs.eq(1).height(), 
+                    r: divs.eq(1).position().left + divs.eq(1).width()
+                };
+                var over = isOverlapRect(rect1, rect2);
+                if (over.overlapedArea){
+                console.log(over);
+                console.log(over.overlapedArea);
+                
+                }
+                
+            
+
+                }
+        });
+
+    </script>
+</html>
