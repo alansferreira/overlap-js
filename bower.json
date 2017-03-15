@@ -1,0 +1,17 @@
+{
+  "name": "overlap-js",
+  "homepage": "https://github.com/alansferreira/overlap-js",
+  "authors": [
+    "Alan <alan.da.silva.ferreira@hotmail.com>"
+  ],
+  "description": "",
+  "main": "overlap.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
